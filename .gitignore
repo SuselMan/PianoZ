@@ -1,0 +1,9 @@
+/.idea
+.vimrc
+.sass-cache
+/app/js/bower
+/distrib
+/dist
+/node_modules
+npm-debug.log
+/.tmp

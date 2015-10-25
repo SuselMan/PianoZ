@@ -1,0 +1,29 @@
+{
+  "nonew": true,
+  "noempty": true,
+  "curly": true,
+  "strict": true,
+  "validthis": true,
+  "eqeqeq": true,
+  "immed": true,
+  "latedef": true,
+  "newcap": true,
+  "noarg": true,
+  "sub": true,
+  "undef": true,
+  "eqnull": true,
+  "browser": true,
+  "globalstrict": true,
+  "bitwise" :true,
+  "forin": true,
+
+  "globals": {
+    "module": true,
+    "require": true,
+    "requirejs": true,
+    "define": true,
+    "console": true,
+    "confirm": true,
+    "alert": true
+  }
+}
