@@ -19,6 +19,7 @@ define(function(require) {
 		},
 
 		gameWindow: function(id) {
+
 			require(['modules/gameWindow/module'], function(module) {
 				App.activeModule && App.activeModule.stop();
 				App.activeModule = module;
@@ -31,6 +32,7 @@ define(function(require) {
 				console.warn('module Game-window NOT loaded.', arguments);
 			});
 		}
+
 	};
 
 	return appController;

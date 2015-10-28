@@ -1,5 +1,8 @@
 <!doctype html>
-
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
 <head>
 
     <meta charset="utf-8">
@@ -8,10 +11,9 @@
     <meta name="viewport" content="width=device-width">
 
     <title>PianoZ</title>
-
+    <!-- build:css /css/main.css -->
     <link rel="stylesheet" href="/css/font-awesome.min.css">
     <link rel="stylesheet" href="/css/bootstrap.css">
-
 
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/js/bower/select2/select2.css">
@@ -19,7 +21,7 @@
     <link rel="stylesheet" href="/js/bower/bootstrap-toggle/css/bootstrap-toggle.css">
     <link rel="stylesheet" href="/js/bower/bootstrap-datepicker/dist/css/bootstrap-datepicker3.css">
     <link rel="stylesheet" href="/js/bower/pnotify/pnotify.core.css">
-
+    <!-- endbuild -->
 </head>
 
 <body class="color-default bg-light-dark theme-sltl theme-sdtl">
@@ -43,8 +45,9 @@
 </div>
 
 
-
 <script src="/js/bower/requirejs/require.js"></script>
+<!-- build:js({.tmp}) /js/main.js -->
 <script src="/js/init.js"></script>
+<!-- endbuild -->
 </body>
 </html>

@@ -6,8 +6,9 @@ define(function (require) {
     "use strict";
 
     var Marionette = require('marionette'),
-        Backbone = require('backbone'),
-        Pianoroll = require('../pianoroll/module');
+        Backbone = require('backbone');
+    var Pianoroll = require('../pianoroll/view');
+
 
 
     var Layout = Marionette.LayoutView.extend({
@@ -20,14 +21,17 @@ define(function (require) {
 
         initialize: function (options) {
           //  this.pianoroll=new Pianoroll();
+
         },
 
         onRender: function () {
-           // this.getRegion('piano').show(pianoroll.view);
+          this.getRegion('piano').show(new Pianoroll());
+          //  App.pianoRoll(this.getRegion('piano'));
+
         },
 
         onLoadSuccess: function() {
-            this.showChildView('content', new ListView({collection: this.collection}));
+          //  this.showChildView('content', new ListView({collection: this.collection}));
         },
 
         onLoadError: function() {
