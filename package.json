@@ -2,7 +2,7 @@
   "name": "PianoZ",
   "version": "0.1.0",
   "devDependencies": {
-    "grunt": "~0.4.1",
+    "grunt": "~0.4.4",
     "grunt-bower-install": "latest",
     "grunt-concurrent": "latest",
     "grunt-contrib-clean": "latest",
