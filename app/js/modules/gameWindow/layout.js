@@ -7,7 +7,10 @@ define(function (require) {
 
     var Marionette = require('marionette'),
         Backbone = require('backbone');
+
     var Pianoroll = require('../pianoroll/view');
+    var Notes = require('../pianoroll/notes');
+    var KeysColl = require('../pianoroll/collection');
 
 
 
@@ -25,7 +28,9 @@ define(function (require) {
         },
 
         onRender: function () {
-          this.getRegion('piano').show(new Pianoroll());
+            var notes=Notes.getKeysCollection();
+            console.log(notes);
+            this.getRegion('piano').show(new Pianoroll({collection:new KeysColl(notes)}));
           //  App.pianoRoll(this.getRegion('piano'));
 
         },

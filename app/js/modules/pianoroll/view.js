@@ -9,52 +9,49 @@ define(function (require) {
         Backbone = require('backbone');
     var $=require('jquery');
 
-    var CollectionView = Marionette.CollectionView.extend({
-        template: require('hbs!templates/pianoroll/layout'),
+    var View = Marionette.ItemView.extend({
+        template: function(m){
+            if(m.sharp) {return require('hbs!templates/pianoroll/blackKey');}
+            return require('hbs!templates/pianoroll/whiteKey');
+        },
+        className:function(){
+
+            if(this.model.get('sharp')) {return 'black-key'}
+            return 'white-key'
+
+        },
 
         ui:{
             example:"#exampleC"
         },
         initialize: function (options) {
             //  this.pianoroll=new Pianoroll();
-            console.log("initialize");
+
         },
 
         onRender: function () {
+            console.log("key"+this.el);
 
         }
     });
 
-
-    var View = Marionette.ItemView.extend({
+    var KeyboardView = Marionette.CompositeView.extend({
         template: require('hbs!templates/pianoroll/layout'),
+        childView:View,
+        className:"keyboard",
 
-        ui:{
-          example:"#exampleC"
-        },
-        initialize: function (options) {
+        initialize: function () {
             //  this.pianoroll=new Pianoroll();
-            console.log("initialize");
+            console.log("initialize",this.collection);
         },
 
         onRender: function () {
-            console.log("onRender ", this.el.querySelector('canvas').getContext('2d'));
-            var example= this.el.querySelector("#exampleC");
-            console.log(example);
-            var ctx     = example.getContext('2d');
-            example.width  = 640;
-            example.height = 480;
-            ctx.strokeRect(15, 15, 266, 266);
-            ctx.strokeRect(18, 18, 260, 260);
-            ctx.fillRect(20, 20, 256, 256);
-            for (var i = 0; i < 8; i += 2)
-                for (var j = 0; j < 8; j += 2) {
-                    ctx.clearRect(20 + i * 32, 20 + j * 32, 32, 32);
-                    ctx.clearRect(20 + (i + 1) * 32, 20 + (j + 1) * 32, 32, 32);
-                }
 
         }
     });
 
-    return View;
+
+
+
+    return KeyboardView;
 });
