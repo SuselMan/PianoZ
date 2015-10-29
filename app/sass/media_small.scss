@@ -1,0 +1,33 @@
+
+@media screen and (max-width: 1800px){
+
+  .keyboard{
+
+    .white-key{
+
+      margin:0.5px;
+    }
+  }
+}
+
+@media screen and (max-width: 800px){
+
+  .keyboard{
+
+    .white-key{
+      width: 1.7%;
+      margin:0.5px;
+    }
+  }
+}
+
+@media screen and (max-width: 500px){
+
+  .keyboard{
+
+    .white-key{
+      width: 1.65%;
+      margin:0.5px;
+    }
+  }
+}
