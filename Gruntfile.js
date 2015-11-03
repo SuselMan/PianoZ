@@ -34,7 +34,7 @@ module.exports = function (grunt) {
                 '!<%= yeoman.app %>/js/bower/*',
                 '!<%= yeoman.app %>/js/bootstrap/*',
                 '!<%= yeoman.app %>/js/bootstrap.js',
-                '!<%= yeoman.app %>/js/libs/*'
+                '!<%= yeoman.app %>/js/inc/*'
 //				'spec/{,*/}*.js'
             ]
         },
@@ -138,6 +138,10 @@ module.exports = function (grunt) {
                         src: [
                             'js/bower/bootstrap-sass-official/assets/fonts/**/*',
                             'js/bower/requirejs/require.js',
+                            'js/bower/midi/*',
+                            'soundfont/*',
+                            'js/inc/*',
+                            'js/inc/shim/*',
                             'index.html',
                             'images/*.{gif,png,jpg,jpeg}',
                             'fonts/*'
