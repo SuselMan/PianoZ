@@ -20,7 +20,9 @@
     "backbone.radio": "0.9.x",
     "bootstrap-toggle": "2.x",
     "select2": "~3.5.2",
-    "pnotify": "~2.0.1"
+    "pnotify": "~2.0.1",
+    "midi":"latest"
+
   },
   "devDependencies": {},
   "directory": "app/js/bower"

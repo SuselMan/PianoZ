@@ -22,9 +22,13 @@ requirejs.config({
             exports: 'jquery'
         }
     },
+
     paths: {
 
         // Vendor paths
+        midi:'bower/midi/build/MIDI',
+        Base64:'bower/midi/inc/shim/Base64.js',
+        Base64binary:'bower/midi/inc/shim/Base64binary.js',
         jquery: 'bower/jquery/dist/jquery',
         "select2": "bower/select2/select2",
         underscore: 'bower/underscore/underscore',
@@ -57,7 +61,9 @@ requirejs.config({
         templates: '../templates',
         utils: 'core/utils/utils',
         cache: 'core/utils/cache',
-        common: 'common'
+        common: 'common',
+       'web-midi-api':'modules/web-midi-api/index'
+
     },
 
 

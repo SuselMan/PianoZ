@@ -8,6 +8,10 @@ define(function (require) {
     var Marionette = require('marionette'),
         Backbone = require('backbone');
     var $=require('jquery');
+    var Radio = require('backbone.radio');
+    var channelMidi = Radio.channel('midi');
+
+
 
     var View = Marionette.ItemView.extend({
         template: function(m){
@@ -20,7 +24,10 @@ define(function (require) {
             return 'white-key'
 
         },
-
+        events: {
+            'mousedown': 'sendNoteOn',
+            'mouseup': 'sendNoteOff',
+        },
         ui:{
             example:"#exampleC"
         },
@@ -32,7 +39,18 @@ define(function (require) {
         onRender: function () {
             console.log("key"+this.el);
 
+        },
+        sendNoteOn:function(){
+          //  console.log()
+            channelMidi.command("note:on",this.model.id);
+
+        },
+        sendNoteOff:function(){
+          //  console.log()
+            channelMidi.command("note:off",this.model.id);
+
         }
+
     });
 
     var KeyboardView = Marionette.CompositeView.extend({
