@@ -27,26 +27,26 @@ define(function (require) {
 		Backbone.history.navigate(route, options || {});
 	};
 
-	channelGlobal.comply('navigate', function (route, options) {
+	channelGlobal.reply('navigate', function (route, options) {
 		//console.info('channelGlobal app:navigate: ', arguments);
 		Backbone.history.navigate(route, options || {});
 	});
 
-	channelGlobal.comply('select:nav:item', function (id) {
+	channelGlobal.reply('select:nav:item', function (id) {
 		var navbar = $('nav ul.nav');
 		$('li', navbar).removeClass('active');
 		$('li[data-id='+id+']', navbar).addClass('active');
 	});
 
-	channelGlobal.comply('error:global', function(options) {
+	channelGlobal.reply('error:global', function(options) {
 		App.getRegion('regionContent').show(new AppErrorView(options));
 	});
 
-	channelGlobal.comply('hide:app:loader', function () {
+	channelGlobal.reply('hide:app:loader', function () {
 		$('.loader-overlay').addClass('loaded');
 	});
 
-	channelGlobal.comply('set:body:class', function (id) {
+	channelGlobal.reply('set:body:class', function (id) {
 		var moduleClass = 'module-';
 
 		function removeClass(i, classes) {

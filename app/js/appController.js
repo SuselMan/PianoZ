@@ -15,7 +15,7 @@ define(function(require) {
 	var appController = {
 
 		index: function() {
-			channelGlobal.command('navigate', 'gameWindow', {trigger: true, replace: true});
+			channelGlobal.request('navigate', 'gameWindow', {trigger: true, replace: true});
 		},
 
 		gameWindow: function(id) {
@@ -25,9 +25,9 @@ define(function(require) {
 				App.activeModule = module;
 				App.activeModule.start({id: id});
 
-				channelGlobal.command('select:nav:item', 'gameWindow');
-				channelGlobal.command('set:body:class', 'gameWindow');
-				channelGlobal.command('hide:app:loader');
+				channelGlobal.request('select:nav:item', 'gameWindow');
+				channelGlobal.request('set:body:class', 'gameWindow');
+				channelGlobal.request('hide:app:loader');
 			}, function() {
 				console.warn('module Game-window NOT loaded.', arguments);
 			});

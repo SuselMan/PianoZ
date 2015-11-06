@@ -38,16 +38,49 @@ define(function (require) {
 
         onRender: function () {
             console.log("key"+this.el);
+            channelMidi.on("note:on",function(note,num){
+                var key;
+
+                if(num){
+                    key=MIDI.noteToKey[num]
+                }
+                else{
+                    key=MIDI.keyToNote[note]
+                }
+                //cosole.log("key"+key)
+                if(key==this.model.id){
+                    this.$el.addClass("down")
+
+                }
+
+            }.bind(this));
+
+            channelMidi.on("note:off",function(note,num){
+                var key;
+
+                if(num){
+                    key=MIDI.noteToKey[num]
+                }
+                else{
+                    key=MIDI.keyToNote[note]
+                }
+                //cosole.log("key"+key)
+                if(key==this.model.id){
+                    this.$el.removeClass("down")
+
+                }
+
+            }.bind(this));
 
         },
         sendNoteOn:function(){
           //  console.log()
-            channelMidi.command("note:on",this.model.id);
+            channelMidi.trigger("note:on",this.model.id);
 
         },
         sendNoteOff:function(){
           //  console.log()
-            channelMidi.command("note:off",this.model.id);
+            channelMidi.trigger("note:off",this.model.id);
 
         }
 

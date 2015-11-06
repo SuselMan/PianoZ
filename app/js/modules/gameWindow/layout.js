@@ -29,7 +29,8 @@ define(function (require) {
           //  this.pianoroll=new Pianoroll();
             this.m=null;
             navigator.requestMIDIAccess().then( this.onsuccesscallback.bind(this), this.onerrorcallback.bind(this));
-            channelMidi.comply("note:on",function(note,num){console.log("on",note,num);
+            channelMidi.on("note:on",function(note,num){
+                //console.log("on",note,num);
                 if(num){
                     MIDI.noteOn(0,num, 127, 0);
                 }
@@ -38,7 +39,8 @@ define(function (require) {
                 }
             });
 
-            channelMidi.comply("note:off",function(note,num){console.log("off",note,num);
+            channelMidi.on("note:off",function(note,num){
+                //console.log("off",note,num);
                 if(num){
                     MIDI.noteOff(0,num, 0, 0);
                 }
@@ -95,10 +97,10 @@ define(function (require) {
         myMIDIMessagehandler:function(e){
            if(e.data.length>1){
                if(e.data[2]>0){
-                   channelMidi.command("note:on",0, e.data[1]);
+                   channelMidi.trigger("note:on",0, e.data[1]);
                }
                else{
-                   channelMidi.command("note:off",0, e.data[1]);
+                   channelMidi.trigger("note:off",0, e.data[1]);
                }
 
            }
