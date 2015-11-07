@@ -1,0 +1,6 @@
+
+@mixin box-shadow($coords:0px -1px 0px 0px,$color:rgba(50, 50, 50, 0.15)) {
+  -webkit-box-shadow: $coords $color;
+  -moz-box-shadow: $coords $color;
+  box-shadow: $coords $color;
+}
