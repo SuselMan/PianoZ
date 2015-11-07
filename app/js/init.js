@@ -37,7 +37,7 @@ requirejs.config({
         'marionette.subrouter': 'bower/backbone.marionette.subrouter/backbone.marionette.subrouter',
         'Backbone.ModelBinder': 'bower/Backbone.ModelBinder/Backbone.ModelBinder',
         'backbone.radio': 'bower/backbone.radio/build/backbone.radio',
-          moment: 'bower/momentjs/moment',
+         moment: 'bower/momentjs/moment',
         'backbone.paginator': 'bower/backbone.paginator/lib/backbone.paginator',
         'backbone-deep-model': 'bower/backbone-deep-model/distribution/deep-model',
         'pnotify': 'bower/pnotify/pnotify.core',
