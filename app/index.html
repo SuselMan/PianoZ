@@ -10,10 +10,9 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
 
-    <title>PianoZ</title>
+    <title>Mozzy Piano</title>
     <!-- build:css css/main.css -->
-    <link rel="stylesheet" href="css/font-awesome.min.css">
-    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
 
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="js/bower/select2/select2.css">
@@ -25,17 +24,32 @@
 </head>
 
 <body class="color-default bg-light-dark theme-sltl theme-sdtl">
-<div class="loader-overlay">
-    <h1>Hello Piano!</h1>
-    <div class="spinner">
 
-    </div>
-</div>
+<div id="wrap" class="main-content">
 
-<div id="wrap" class="main-content topbar-white-wrap">
+    <div class="navigate-contanier" id="regionNavigate">
+       <!-- <div class="logo"><img src="images/logo.png" alt="Mozzy Piano"></div>
+        <div class="btn-group">
+            <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-home" title="Главная"></span></button>
+            <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-play" title="Играть"></span></button>
+            <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-cog" title="Настройки"></span></button>
+        </div>
+    </div>-->
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="/"><div class="logo"><img src="images/logo.png" alt="Mozzy Piano"></div></a>
+                </div>
 
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
-    <div class="page-content-container page-content container-fluid" id="regionPageContent">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="#"><span class="glyphicon glyphicon-cog" title="Настройки"></span></a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    <div class="page-contanier"  id="regionPageContent">
 
     </div>
 </div>

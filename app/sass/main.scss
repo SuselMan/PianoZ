@@ -1,4 +1,34 @@
-@import "bs";
-@import "bs3";
+@import "colors";
 @import "mixins";
 @import "gameWindow/index";
+
+body{
+  background-color: $main-background;
+
+}
+
+.navigate-contanier{
+
+//  position: absolute;
+  top: 0%;
+  left: 0%;
+ // height: 45px;
+  width: 100%;
+  background-color: $second-background;
+  .logo{
+    top: -6px;
+   // left: 6px;
+    position: relative;
+  }
+  .btn-group{
+    right: 10px;
+    position: absolute;
+    top: 6px;
+    background: black;
+  }
+
+}
+.page-contanier{
+  position: absolute;
+ // top: 50px;
+}

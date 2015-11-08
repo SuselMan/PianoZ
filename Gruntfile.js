@@ -168,11 +168,6 @@ module.exports = function (grunt) {
                 files: {
                     "<%= yeoman.app %>/css/style.css": "<%= yeoman.app %>/sass/main.scss"
                 }
-            },
-            bs: {
-                files: {
-                    "<%= yeoman.app %>/css/bootstrap.css": "<%= yeoman.app %>/sass/bs.scss"
-                }
             }
         },
 
