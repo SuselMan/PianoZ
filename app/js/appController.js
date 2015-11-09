@@ -10,6 +10,7 @@ define(function(require) {
 
 	require('midi');
 	require('modules/gameWindow/module');
+	require('modules/settings/module');
 
 
 
@@ -29,6 +30,19 @@ define(function(require) {
 				channelGlobal.request('select:nav:item', 'gameWindow');
 				channelGlobal.request('set:body:class', 'gameWindow');
 				channelGlobal.request('hide:app:loader');
+			}, function() {
+				console.warn('module Game-window NOT loaded.', arguments);
+			});
+		},
+		settings:function(id){
+			require(['modules/settings/module'], function(module) {
+				//App.activeModule && App.activeModule.stop();
+				//App.activeModule = module;
+				module.start({id: id});
+
+			//	channelGlobal.request('select:nav:item', 'gameWindow');
+			//	channelGlobal.request('set:body:class', 'gameWindow');
+			//	channelGlobal.request('hide:app:loader');
 			}, function() {
 				console.warn('module Game-window NOT loaded.', arguments);
 			});

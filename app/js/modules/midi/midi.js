@@ -79,8 +79,15 @@ define(function(require){
             input.onmidimessage = this.myMIDIMessagehandler.bind(this); // onmidimessage( event ), event.data & event.receivedTime are populated
             var iteratorOutputs = outputs.values() // returns an iterator that loops over all outputs
             var output = iteratorOutputs.next().value; // grab first output device
-            output.send( [ 0x90, 0x45, 0x7f ] ); // full velocity note on A4 on channel zero
-            output.send( [ 0x80, 0x45, 0x7f ], window.performance.now() + 1000 ); // full velocity A4 note off in one second.
+
+            var html = '<h4>midi inputs:</h4>';
+            inputs.forEach(function(port){
+            html += port.name + '<br>';
+
+        });
+            console.log(html);
+
+
 
         },
 

@@ -14,7 +14,8 @@ define(function (require) {
 	var App = new Marionette.Application();
 
 	App.addRegions({
-		regionContent: '#regionPageContent'
+		regionContent: '#regionPageContent',
+		regionPopUp: '#regionPopUp'
 	});
 
 	App.addInitializer(function() {
