@@ -88,6 +88,10 @@
   .keyboard .white-key {
     width: 1.65%;
     margin: 0.5px; } }
+.settings {
+  width: 500px;
+  height: 500px; }
+
 body {
   background-color: #fff; }
 
@@ -111,7 +115,8 @@ body {
 .popup-contanier {
   z-index: 10000;
   position: absolute;
-  top: 0; }
+  top: 0;
+  right: 0; }
 
 .popup {
   -webkit-box-shadow: 0px 0px 33px -5px rgba(0, 0, 0, 0.12);

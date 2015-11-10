@@ -1,6 +1,8 @@
 @import "colors";
 @import "mixins";
 @import "gameWindow/index";
+@import "settings/settings";
+
 
 body{
   background-color: $main-background;
@@ -36,6 +38,7 @@ body{
   z-index: 10000;
   position: absolute;
   top: 0;
+  right: 0;
  // width: 100%;
  // height: 100%;
 }
