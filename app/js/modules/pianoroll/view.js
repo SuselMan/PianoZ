@@ -15,12 +15,12 @@ define(function (require) {
 
     var View = Marionette.ItemView.extend({
         template: function(m){
-            if(m.sharp) {return require('hbs!templates/pianoroll/blackKey');}
+            if(m.flat) {return require('hbs!templates/pianoroll/blackKey');}
             return require('hbs!templates/pianoroll/whiteKey');
         },
         className:function(){
 
-            if(this.model.get('sharp')) {return 'black-key'}
+            if(this.model.get('flat')) {return 'black-key'}
             return 'white-key'
 
         },
