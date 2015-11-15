@@ -11,17 +11,12 @@ define(function (require) {
     var Radio = require('backbone.radio');
     var channelMidi = Radio.channel('midi');
 
-
-
     var View = Marionette.ItemView.extend({
         template: function(m){
-            if(m.sharp) {return require('hbs!templates/pianoroll/blackKey');}
-            return require('hbs!templates/pianoroll/whiteKey');
+            return m.flat ? require('hbs!templates/pianoroll/blackKey') : require('hbs!templates/pianoroll/whiteKey');
         },
-        className:function(){
-
-            if(this.model.get('sharp')) {return 'black-key'}
-            return 'white-key'
+        className: function(){
+            return this.model.get('flat') ? 'black-key' : 'white-key';
 
         },
         events: {
@@ -100,9 +95,6 @@ define(function (require) {
 
         }
     });
-
-
-
 
     return KeyboardView;
 });
