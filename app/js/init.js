@@ -26,7 +26,7 @@ requirejs.config({
             exports: 'MIDI'
         },
         'Base64binary': {
-            exports: 'Base64binary' // So far not sure if it's really needed to specify exports here explicitly
+            exports: 'Base64Binary'
         }
     },
 
