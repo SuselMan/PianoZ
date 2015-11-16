@@ -29,11 +29,11 @@ define(function (require) {
         },
         initialize: function (options) {
             this.module=options.module;
-            console.log("this.module",this.module);
+           // console.log("this.module",this.module);
         },
         onRender: function () {
            // var notes=Notes.getKeysCollection();
-            console.log("SETTINGS");
+            //console.log("SETTINGS");
           //  this.getRegion('piano').show(new Pianoroll({collection:new KeysColl(notes)}));
         },
 

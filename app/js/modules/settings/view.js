@@ -10,21 +10,27 @@ define(function (require) {
     var $=require('jquery');
     var Radio = require('backbone.radio');
     var channelMidi = Radio.channel('midi');
+    var model = require('./model');
 
 
+    var View = Marionette.ItemView.extend({
+        template:'hbs!templates/settings/midi-settings' ,
 
-    var Model = Backbone.Model.extend({
-
-        defaults: {
-            "input":  "",
-            "output":     "",
-            "volume":    ""
+        ui:{
+            midiInput:"#midi-input"
         },
-        initialize: function() {}
+        initialize: function (options) {
+
+        },
+
+        onRender: function () {
+
+        }
+
+    });
 
 
-       });
 
 
-    return Model;
+    return View;
 });

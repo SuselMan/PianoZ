@@ -9,6 +9,7 @@ define(function(require){
 
     var is=false;
     var obj;
+    var setting={};
     require("midi");
 
 
@@ -24,7 +25,7 @@ define(function(require){
 
     initialize:function (){
 
-        this.m=null;
+      //  this.m=null;
         navigator.requestMIDIAccess().then( this.onsuccesscallback.bind(this), this.onerrorcallback.bind(this));
 
         channelMidi.on("note:on",function(note,num){
@@ -70,26 +71,23 @@ define(function(require){
 
     onsuccesscallback:function(access){
 
-            this.m = access;
             // Things you can do with the MIDIAccess object:
-            var inputs = this.m.inputs; // inputs = MIDIInputMaps, you can retrieve the inputs with iterators
-            var outputs = this.m.outputs; // outputs = MIDIOutputMaps, you can retrieve the outputs with iterators
-            var iteratorInputs = inputs.values() // returns an iterator that loops over all inputs
-            var input = iteratorInputs.next().value // get the first input
-            input.onmidimessage = this.myMIDIMessagehandler.bind(this); // onmidimessage( event ), event.data & event.receivedTime are populated
-            var iteratorOutputs = outputs.values() // returns an iterator that loops over all outputs
+          //  var inputs = this.m.inputs; // inputs = MIDIInputMaps, you can retrieve the inputs with iterators
+           // var outputs = this.m.outputs; // outputs = MIDIOutputMaps, you can retrieve the outputs with iterators
+           // var iteratorInputs = inputs.values() // returns an iterator that loops over all inputs
+          //  var input = iteratorInputs.next().value // get the first input
+           // input.onmidimessage = this.myMIDIMessagehandler.bind(this); // onmidimessage( event ), event.data & event.receivedTime are populated
+           // var iteratorOutputs = outputs.values() // returns an iterator that loops over all outputs
             var output = iteratorOutputs.next().value; // grab first output device
+            setting.inputs=access.inputs;
+            setting.outputs=access.outputs;
 
-            var html = '<h4>midi inputs:</h4>';
-            inputs.forEach(function(port){
-            html += port.name + '<br>';
+    },
 
-        });
-            console.log(html);
-
+    getMidiSettingModel:function(){
 
 
-        },
+    },
 
     myMIDIMessagehandler:function(e){
 
