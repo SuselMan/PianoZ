@@ -21,8 +21,8 @@
     "bootstrap-toggle": "2.x",
     "select2": "~3.5.2",
     "pnotify": "~2.0.1",
-    "midi":"latest"
-
+    "midi": "latest",
+    "almond": "~0.3.1"
   },
   "devDependencies": {},
   "directory": "app/js/bower"
