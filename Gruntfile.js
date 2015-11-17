@@ -143,7 +143,6 @@ module.exports = function (grunt) {
                         dest: '<%= yeoman.dist %>',
                         src: [
                             'js/bower/bootstrap-sass-official/assets/fonts/**/*',
-                            'js/bower/requirejs/require.js',
                             'js/bower/midi/*',
                             'soundfont/*',
                             'js/inc/*',
