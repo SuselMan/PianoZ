@@ -145,8 +145,6 @@ module.exports = function (grunt) {
                             'js/bower/bootstrap-sass-official/assets/fonts/**/*',
                             'js/bower/midi/*',
                             'soundfont/*',
-                            'js/inc/*',
-                            'js/inc/shim/*',
                             'index.html',
                             'images/*.{gif,png,jpg,jpeg}',
                             'fonts/*'
