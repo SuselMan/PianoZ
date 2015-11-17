@@ -43,11 +43,17 @@ module.exports = function (grunt) {
         requirejs: {
             dist: {
                 options: {
-                    optimize: 'none',
+                    almond: true,
+                    insertRequire: ['main'],
+                    replaceRequireScript: [{
+                        files: ['<%= yeoman.dist %>/index.html'],
+                        // module: 'main',
+                        modulePath: 'js/main'
+                    }],
+                    optimize: 'uglify',
                     baseUrl: '<%= yeoman.app %>/js/',
-                    name: 'init',
                     mainConfigFile: '<%= yeoman.app %>/js/init.js',
-                    out: '.tmp/concat/js/main.js'
+                    out: '<%= yeoman.dist %>/js/main.js'
                 }
             }
         },
@@ -137,7 +143,6 @@ module.exports = function (grunt) {
                         dest: '<%= yeoman.dist %>',
                         src: [
                             'js/bower/bootstrap-sass-official/assets/fonts/**/*',
-                            'js/bower/requirejs/require.js',
                             'js/bower/midi/*',
                             'soundfont/*',
                             'index.html',
@@ -213,10 +218,9 @@ module.exports = function (grunt) {
         'useminPrepare',
         'imagemin',
         'concat',
-        'requirejs:dist',
         'cssmin',
-        'uglify',
         'copy:dist',
+        'requirejs:dist',
         'rev',
         'usemin',
         'htmlmin',
