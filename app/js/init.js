@@ -20,6 +20,13 @@ requirejs.config({
         'select2': {
             deps: ['jquery'],
             exports: 'jquery'
+        },
+        'midi': {
+            deps: ['Base64', 'Base64binary', 'WebMIDIAPI', 'WebAudioAPI'],
+            exports: 'MIDI'
+        },
+        'Base64binary': {
+            exports: 'Base64Binary'
         }
     },
 
@@ -27,8 +34,10 @@ requirejs.config({
 
         // Vendor paths
         midi:'bower/midi/build/MIDI',
-        Base64:'bower/midi/inc/shim/Base64.js',
-        Base64binary:'bower/midi/inc/shim/Base64binary.js',
+        Base64:'bower/midi/inc/shim/Base64', // Provides atob() and btoa() functions for old IE (Base64 encryption-decryption)
+        Base64binary:'bower/midi/inc/shim/Base64binary', // Needed for plugin.webaudio.js, but feels like doing same shit as atob()
+        WebMIDIAPI: 'bower/midi/inc/shim/WebMIDIAPI', // WebMIDIAPI polyfill
+        WebAudioAPI: 'bower/midi/inc/shim/WebAudioAPI', // Consistency between browser's WebAudioAPI implementations
         jquery: 'bower/jquery/dist/jquery',
         "select2": "bower/select2/select2",
         underscore: 'bower/underscore/underscore',
@@ -62,7 +71,6 @@ requirejs.config({
         utils: 'core/utils/utils',
         cache: 'core/utils/cache',
         common: 'common',
-       'web-midi-api':'modules/web-midi-api/index'
 
     },
 
