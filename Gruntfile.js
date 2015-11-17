@@ -140,8 +140,6 @@ module.exports = function (grunt) {
                             'js/bower/requirejs/require.js',
                             'js/bower/midi/*',
                             'soundfont/*',
-                            'js/inc/*',
-                            'js/inc/shim/*',
                             'index.html',
                             'images/*.{gif,png,jpg,jpeg}',
                             'fonts/*'
