@@ -47,7 +47,6 @@ module.exports = function (grunt) {
                     insertRequire: ['main'],
                     replaceRequireScript: [{
                         files: ['<%= yeoman.dist %>/index.html'],
-                        // module: 'main',
                         modulePath: 'js/main'
                     }],
                     optimize: 'uglify',
