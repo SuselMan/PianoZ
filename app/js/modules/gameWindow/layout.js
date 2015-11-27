@@ -13,8 +13,7 @@ define(function (require) {
     var KeysColl = require('../pianoroll/collection');
   //  var SingletonModel=require('backbone-singleton');
     var Midi=require('../midi/midi');
-
-
+    var NoteSheet = require('../notesheet/view');
 
     var Layout = Marionette.LayoutView.extend({
         template: require('hbs!templates/gameWindow/layout'),
@@ -36,7 +35,7 @@ define(function (require) {
             console.log(notes);
             this.getRegion('piano').show(new Pianoroll({collection:new KeysColl(notes)}));
           //  App.pianoRoll(this.getRegion('piano'));
-
+            this.getRegion('sheets').show(new NoteSheet());
         },
 
         onLoadSuccess: function() {
