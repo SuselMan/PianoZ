@@ -14,7 +14,7 @@ define(function(require) {
   var Layout = Marionette.ItemView.extend({
     template: false,
     onRender: function() {
-      ABCJS.renderAbc(this.el, sampleSheet);
+      abc.renderAbc(this.el, sampleSheet);
     }
   });
 
