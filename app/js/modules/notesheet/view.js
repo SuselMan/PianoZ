@@ -2,6 +2,7 @@ define(function(require) {
   "use strict";
   
   var Marionette = require("marionette");
+  var abc = require("abc");
   
   var sampleSheet = "X:1\n" + 
                     "T:Notes\n" + 

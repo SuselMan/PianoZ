@@ -27,6 +27,9 @@ requirejs.config({
         },
         'Base64binary': {
             exports: 'Base64Binary'
+        },
+        'abc': {
+            exports: 'ABCJS'
         }
     },
 
@@ -56,6 +59,8 @@ requirejs.config({
         "bootstrap-datepicker": "bower/bootstrap-datepicker/js/bootstrap-datepicker",
         "bootstrap-datepicker-ru": "bower/bootstrap-datepicker/dist/locales/bootstrap-datepicker.ru.min",
         "bootstrap-toggle": "bower/bootstrap-toggle/js/bootstrap-toggle",
+
+        'abc': 'lib/abcjs_basic_2.2-min',
 
         /* require handlebars plugin - Alex Sexton */
         handlebars: 'bower/require-handlebars-plugin/hbs/handlebars',
