@@ -9,7 +9,7 @@ define(function(require){
 
     var is=false;
     var obj;
-    require("midi");
+    MIDI = require("midi");
 
 
     var Midi=function(){
