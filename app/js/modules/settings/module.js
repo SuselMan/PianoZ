@@ -17,7 +17,7 @@ define(function (require) {
         },
 
         onDestroy: function () {
-            console.log("BBB");
+
             this.region.empty();
         },
 
@@ -35,7 +35,7 @@ define(function (require) {
     });
 
     Module.on('stop', function() {
-        console.log("AAAA");
+
         window.history.back();
         return this.controller && (this.controller.destroy());
 

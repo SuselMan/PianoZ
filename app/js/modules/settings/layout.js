@@ -9,6 +9,7 @@ define(function (require) {
         Backbone = require('backbone');
 
     var Midi=require('../midi/midi');
+    var View=require('./view');
 
 
 
@@ -17,14 +18,14 @@ define(function (require) {
 
         regions: {
 
-            main: '.js-main'
+            main: '.js-settings'
 
         },
         events:{
-            'click #js-close': 'close',
+            'click #js-close': 'close'
         },
         close:function(){
-            console.log("STOP POPUP");
+            //console.log("STOP POPUP");
             this.module.stop();
         },
         initialize: function (options) {
@@ -34,7 +35,7 @@ define(function (require) {
         onRender: function () {
            // var notes=Notes.getKeysCollection();
             //console.log("SETTINGS");
-          //  this.getRegion('piano').show(new Pianoroll({collection:new KeysColl(notes)}));
+            this.getRegion('main').show(new View());
         },
 
         onLoadSuccess: function() {

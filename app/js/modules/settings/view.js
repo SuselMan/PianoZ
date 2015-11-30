@@ -6,25 +6,55 @@ define(function (require) {
     "use strict";
 
     var Marionette = require('marionette'),
-        Backbone = require('backbone');
-    var $=require('jquery');
-    var Radio = require('backbone.radio');
-    var channelMidi = Radio.channel('midi');
-    var model = require('./model');
+        Backbone = require('backbone'),
+        $=require('jquery'),
+        select2 = require('select2'),
+        Radio = require('backbone.radio');
+    var MB_Converters = require('common/modelbinder_converters');
+    var ModelBinder = require('Backbone.ModelBinder');
 
+    var ChannelMidi = Radio.channel('midi');
+    var Model = require('./model');
+    var Midi=new require('modules/midi/midi')();
 
     var View = Marionette.ItemView.extend({
-        template:'hbs!templates/settings/midi-settings' ,
+
+        template: require('hbs!templates/settings/midiSettings') ,
+        model:new Model(),
 
         ui:{
-            midiInput:"#midi-input"
+            midiInput:"#midi-input",
+            midiOutput:"#midi-output",
+            saveBtn:"#save"
         },
+
+        events: {
+
+            'click @ui.saveBtn': 'save'
+        },
+
         initialize: function (options) {
 
         },
 
         onRender: function () {
+            var bindings = ModelBinder.createDefaultBindings(this.el, 'name');
+          //  bindings.sounds.converter = MB_Converters.CB;
+            new ModelBinder().bind(this.model, this.el, bindings);
 
+            var inputs=Midi.getMidiSettingModel().inputs;
+            _.each(inputs, function(item){ item.text=item.device});
+            this.$("#midi-input").select2({ allowClear: true,	data:inputs });
+
+
+            var outputs=Midi.getMidiSettingModel().outputs;
+            _.each(outputs, function(item){ item.text=item.device});
+            this.$("#midi-output").select2({ allowClear: true,	data:outputs });
+        },
+
+        save:function(){
+            console.log(this.model);
+            this.model.save();
         }
 
     });

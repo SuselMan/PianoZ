@@ -18,9 +18,17 @@ define(function (require) {
         defaults: {
             "input":  "",
             "output":     "",
-            "volume":    ""
+            "sounds":    ""
         },
-        initialize: function() {}
+        initialize: function() {
+
+
+        },
+
+        save:function(){
+            console.log("Settings saved");
+
+        }
 
 
        });

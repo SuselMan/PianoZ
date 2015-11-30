@@ -10,7 +10,7 @@ define(function(require){
     var is=false;
     var obj;
     var setting={};
-    require("midi");
+    var MIDI=require("midi");
 
 
     var Midi=function(){
@@ -25,11 +25,10 @@ define(function(require){
 
     initialize:function (){
 
-      //  this.m=null;
         navigator.requestMIDIAccess().then( this.onsuccesscallback.bind(this), this.onerrorcallback.bind(this));
 
         channelMidi.on("note:on",function(note,num){
-            //console.log("on",note,num);
+
             if(num){
                 MIDI.noteOn(0,num, 127, 0);
             }
@@ -39,31 +38,28 @@ define(function(require){
         });
 
         channelMidi.on("note:off",function(note,num){
-            //console.log("off",note,num);
+
             if(num){
                 MIDI.noteOff(0,num, 0, 0);
             }
             else{
                 MIDI.noteOff(0, MIDI.keyToNote[note], 0, 0);
             }
+
         });
 
         MIDI.loadPlugin({
+
             soundfontUrl: "./soundfont/",
             instrument: "acoustic_grand_piano",
             onprogress: function(state, progress) {
                 console.log(state, progress);
+               // TODO: make normal loader
             },
             onsuccess: function() {
-                var delay = 0; // play one note every quarter second
-                var note = 50; // the MIDI note
-                var velocity = 127; // how hard the note hits
-                // play the note
                 MIDI.setVolume(0, 127);
-                MIDI.noteOn(0, note, velocity, delay);
-                MIDI.noteOff(0, note, delay + 0.75);
-                //   console.log();
             }
+
         });
 
 
@@ -71,22 +67,22 @@ define(function(require){
 
     onsuccesscallback:function(access){
 
-            // Things you can do with the MIDIAccess object:
-          //  var inputs = this.m.inputs; // inputs = MIDIInputMaps, you can retrieve the inputs with iterators
-           // var outputs = this.m.outputs; // outputs = MIDIOutputMaps, you can retrieve the outputs with iterators
-           // var iteratorInputs = inputs.values() // returns an iterator that loops over all inputs
-          //  var input = iteratorInputs.next().value // get the first input
-           // input.onmidimessage = this.myMIDIMessagehandler.bind(this); // onmidimessage( event ), event.data & event.receivedTime are populated
-           // var iteratorOutputs = outputs.values() // returns an iterator that loops over all outputs
-            var output = iteratorOutputs.next().value; // grab first output device
-            setting.inputs=access.inputs;
-            setting.outputs=access.outputs;
+
+        setting.inputs=[{device:'device1',id:'0'},{device:'device2',id:'1'}];
+        setting.outputs=[{device:'device1',id:'0'},{device:'device2',id:'1'}];
+        setting.sounds=true;
+        setting.input=null;
+        setting.output=null;
+        console.log(setting.inputs);
 
     },
 
     getMidiSettingModel:function(){
-
-
+        return setting;
+    },
+    updateSetting:function(newsetting){
+        setting=newsetting;
+        console.log("Setting Was Update");
     },
 
     myMIDIMessagehandler:function(e){

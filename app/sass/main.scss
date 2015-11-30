@@ -21,6 +21,9 @@ body{
     top: -6px;
    // left: 6px;
     position: relative;
+    img{
+      width: 26px;
+    }
   }
   .btn-group{
     right: 10px;
@@ -35,7 +38,7 @@ body{
  // top: 50px;
 }
 .popup-contanier{
-  z-index: 10000;
+  z-index: 5000;
   position: absolute;
   top: 0;
   right: 0;

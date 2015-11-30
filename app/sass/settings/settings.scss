@@ -3,5 +3,17 @@
  // right: 0;
  // position: absolute;
   width: 500px;
-  height:500px;
+  height:auto;
+}
+
+.row{
+  padding-bottom: 10px;
+
+}
+#js-close{
+  background-color: transparent;
+  border: none;
+  span{
+    color:#777777;
+  }
 }
