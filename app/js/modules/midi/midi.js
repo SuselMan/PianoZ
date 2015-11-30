@@ -9,13 +9,17 @@ define(function(require){
 
     var is=false;
     var obj;
-    require("midi");
+    var MIDI = require("midi");
 
 
     var Midi=function(){
-        if(!is){obj=new MidiWacher()}else{console.warn("уже создан")};
+        if (!is) {
+            obj=new MidiWacher();
+        } else {
+            console.warn("уже создан");
+        };
         is=true;
-        return obj
+        return obj;
 
     }
 
@@ -104,7 +108,6 @@ define(function(require){
 
     });
 
-    return Midi
+    return Midi;
 
-
-})
+});

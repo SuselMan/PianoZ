@@ -8,11 +8,6 @@ define(function(require) {
 	var App = require('app'),
 		channelGlobal = require('backbone.radio').channel('global');
 
-	require('midi');
-	require('modules/gameWindow/module');
-
-
-
 	var appController = {
 
 		index: function() {
