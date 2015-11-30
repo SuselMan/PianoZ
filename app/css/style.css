@@ -66,13 +66,13 @@
       background-color: #000; }
     .keyboard .black-key:active {
       background-color: #ffcc00;
-      border-bottom: 10px solid #fff76f;
+      border-bottom: 1px solid #fff76f;
       -webkit-box-shadow: 0px 0px 15px #fff76f;
       -moz-box-shadow: 0px 0px 15px #fff76f;
       box-shadow: 0px 0px 15px #fff76f; }
     .keyboard .black-key.down {
       background-color: #ffcc00;
-      border-bottom: 10px solid #fff76f;
+      border-bottom: 1px solid #fff76f;
       -webkit-box-shadow: 0px 0px 15px #fff76f;
       -moz-box-shadow: 0px 0px 15px #fff76f;
       box-shadow: 0px 0px 15px #fff76f; }
