@@ -86,6 +86,14 @@
   }
 
 }
-
+.sounds-loader{
+  z-index: 2000;
+  background-color:#000;
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  height: 100%;
+  opacity: 0.5;
+}
 @import "media_small";
 

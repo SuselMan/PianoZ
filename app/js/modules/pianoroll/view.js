@@ -67,6 +67,11 @@ define(function (require) {
 
             }.bind(this));
 
+
+
+
+
+
         },
         sendNoteOn:function(){
           //  console.log()
@@ -92,6 +97,14 @@ define(function (require) {
         },
 
         onRender: function () {
+
+            channelMidi.on("sounds:load:progress",function(i){
+                console.log(i);
+                var progress=i*100;
+                this.$('.sounds-loader').attr('style','width:'+progress+'%');
+
+            }.bind(this));
+
 
         }
     });

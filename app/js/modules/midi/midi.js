@@ -53,7 +53,8 @@ define(function(require){
             soundfontUrl: "./soundfont/",
             instrument: "acoustic_grand_piano",
             onprogress: function(state, progress) {
-                console.log(state, progress);
+               // console.log(state, progress);
+                channelMidi.trigger("sounds:load:progress",progress);
                // TODO: make normal loader
             },
             onsuccess: function() {
