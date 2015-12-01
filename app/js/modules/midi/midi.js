@@ -68,25 +68,47 @@ define(function(require){
 
     onsuccesscallback:function(access){
 
-
-        setting.inputs=[{device:'device1',id:'0'},{device:'device2',id:'1'}];
-        setting.outputs=[{device:'device1',id:'0'},{device:'device2',id:'1'}];
+        this.access=access;
+        setting.inputs=[];
+        setting.outputs=[];
+        access.inputs.forEach( function( port, key ) {
+            var device={};
+            console.log("PORT",port);
+            device.text = port.name;
+            device.id=port.id;
+            setting.inputs.push(device)
+        });
+        access.outputs.forEach( function( port, key ) {
+            var device={};
+            device.text = port.name;
+            device.id=setting.outputs.length;
+            setting.outputs.push(device)
+        });
         setting.sounds=true;
         setting.input=null;
         setting.output=null;
-        console.log(setting.inputs);
+        console.log(access.inputs);
 
     },
 
     getMidiSettingModel:function(){
         return setting;
     },
+
     updateSetting:function(newsetting){
-        setting=newsetting;
+        console.log(this.access);
+        setting.input=newsetting.input;
+        setting.output=newsetting.output;
+        setting.sounds=newsetting.sounds;
+
+        var input = this.access.inputs.get(setting.inputs[setting.input].id);
+            console.log(input);
+            input.onmidimessage = this.MIDIMessageEventHandler;
+
         console.log("Setting Was Update");
     },
 
-    myMIDIMessagehandler:function(e){
+        MIDIMessageEventHandler:function(e){
 
             if(e.data.length>1){
                 if(e.data[2]>0){

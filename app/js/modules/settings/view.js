@@ -43,17 +43,14 @@ define(function (require) {
             new ModelBinder().bind(this.model, this.el, bindings);
 
             var inputs=Midi.getMidiSettingModel().inputs;
-            _.each(inputs, function(item){ item.text=item.device});
             this.$("#midi-input").select2({ allowClear: true,	data:inputs });
 
 
             var outputs=Midi.getMidiSettingModel().outputs;
-            _.each(outputs, function(item){ item.text=item.device});
             this.$("#midi-output").select2({ allowClear: true,	data:outputs });
         },
 
         save:function(){
-            console.log(this.model);
             this.model.save();
         }
 

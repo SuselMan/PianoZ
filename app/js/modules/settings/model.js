@@ -10,6 +10,7 @@ define(function (require) {
     var $=require('jquery');
     var Radio = require('backbone.radio');
     var channelMidi = Radio.channel('midi');
+    var Midi=new require('modules/midi/midi')();
 
 
 
@@ -26,8 +27,7 @@ define(function (require) {
         },
 
         save:function(){
-            console.log("Settings saved");
-
+            Midi.updateSetting(this.toJSON());
         }
 
 

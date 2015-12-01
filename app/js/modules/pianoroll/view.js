@@ -100,7 +100,7 @@ define(function (require) {
 
             channelMidi.on("sounds:load:progress",function(i){
                 console.log(i);
-                var progress=i*100;
+                var progress=100-i*100;
                 this.$('.sounds-loader').attr('style','width:'+progress+'%');
 
             }.bind(this));
