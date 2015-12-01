@@ -25,12 +25,16 @@ define(function (require) {
 
 
 	App.navigate = function (route, options) {
+		$('#loading-indicator').show();
+		console.log("test");
 		Backbone.history.navigate(route, options || {});
+
 	};
 
 	channelGlobal.reply('navigate', function (route, options) {
 		//console.info('channelGlobal app:navigate: ', arguments);
 		Backbone.history.navigate(route, options || {});
+
 	});
 
 	channelGlobal.reply('select:nav:item', function (id) {
@@ -44,7 +48,8 @@ define(function (require) {
 	});
 
 	channelGlobal.reply('hide:app:loader', function () {
-		$('.loader-overlay').addClass('loaded');
+		//$('.loader-overlay').addClass('loaded');
+		$('#loading-indicator').hide();
 	});
 
 	channelGlobal.reply('set:body:class', function (id) {
@@ -79,7 +84,5 @@ define(function (require) {
 			console.log((domain || false ? '(' + domain + ') ' : '') + message);
 		}
 	};
-
-
 	return App;
 });
