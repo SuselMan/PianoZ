@@ -14,7 +14,7 @@ define(function(require){
 
 
     var Midi=function(){
-        if(!is){obj=new MidiWacher()}else{console.warn("уже создан")};
+        if(!is){obj=new MidiWacher()};
         is=true;
         return obj
 
@@ -53,9 +53,7 @@ define(function(require){
             soundfontUrl: "./soundfont/",
             instrument: "acoustic_grand_piano",
             onprogress: function(state, progress) {
-               // console.log(state, progress);
                 channelMidi.trigger("sounds:load:progress",progress);
-               // TODO: make normal loader
             },
             onsuccess: function() {
                 MIDI.setVolume(0, 127);
@@ -96,31 +94,31 @@ define(function(require){
     },
 
     updateSetting:function(newsetting){
-        console.log(this.access);
+
         setting.input=newsetting.input;
         setting.output=newsetting.output;
         setting.sounds=newsetting.sounds;
-
-        var input = this.access.inputs.get(setting.inputs[setting.input].id);
+        if(setting.input) {
+            var input = this.access.inputs.get(setting.inputs[setting.input].id);
             console.log(input);
             input.onmidimessage = this.MIDIMessageEventHandler;
-
+        }
+        setting.sounds?MIDI.setVolume(0, 127):MIDI.setVolume(0,0);
         console.log("Setting Was Update");
     },
+    MIDIMessageEventHandler:function(e){
 
-        MIDIMessageEventHandler:function(e){
-
-            if(e.data.length>1){
-                if(e.data[2]>0){
-                    channelMidi.trigger("note:on",0, e.data[1]);
-                }
-                else{
-                    channelMidi.trigger("note:off",0, e.data[1]);
-                }
-
+        if(e.data.length>1){
+            if(e.data[2]>0){
+                channelMidi.trigger("note:on",0, e.data[1]);
+            }
+            else{
+                channelMidi.trigger("note:off",0, e.data[1]);
             }
 
-        },
+        }
+
+    },
 
     onerrorcallback:function( err ) {
             console.warn( "MIDI access problem! Error code: " + err.code );

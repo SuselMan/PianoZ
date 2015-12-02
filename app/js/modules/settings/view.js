@@ -43,10 +43,19 @@ define(function (require) {
             new ModelBinder().bind(this.model, this.el, bindings);
 
             var inputs=Midi.getMidiSettingModel().inputs;
+            if(!inputs.length) {
+                this.$("#midi-input").prop("placeholder", "No Device Detected");
+                this.$("#midi-input").prop("disabled", true);
+            }
+
             this.$("#midi-input").select2({ allowClear: true,	data:inputs });
 
 
             var outputs=Midi.getMidiSettingModel().outputs;
+            if(!outputs.length) {
+                this.$("#midi-output").prop("placeholder", "No Device Detected");
+                this.$("#midi-output").prop("disabled", true);
+            }
             this.$("#midi-output").select2({ allowClear: true,	data:outputs });
         },
 
