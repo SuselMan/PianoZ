@@ -8,7 +8,6 @@ define(function(require) {
   var App = require('app');
   var channelGlobal = require('backbone.radio').channel('global');
 
-  require('modules/settings/module');
 
   var appController = {
 
