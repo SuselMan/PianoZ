@@ -41,22 +41,25 @@ define(function (require) {
             var bindings = ModelBinder.createDefaultBindings(this.el, 'name');
           //  bindings.sounds.converter = MB_Converters.CB;
             new ModelBinder().bind(this.model, this.el, bindings);
-
             var inputs=Midi.getMidiSettingModel().inputs;
-            if(!inputs.length) {
+
+            if(inputs &&inputs.length) {
+               // console.log('#midi-input');
+                this.$("#midi-input").select2({allowClear: true, data: inputs});
+            }
+            else {
                 this.$("#midi-input").prop("placeholder", "No Device Detected");
                 this.$("#midi-input").prop("disabled", true);
             }
 
-            this.$("#midi-input").select2({ allowClear: true,	data:inputs });
-
-
             var outputs=Midi.getMidiSettingModel().outputs;
-            if(!outputs.length) {
+            if(outputs && outputs.length) {
+                this.$("#midi-output").select2({ allowClear: true,	data:outputs });
+            }
+            else{
                 this.$("#midi-output").prop("placeholder", "No Device Detected");
                 this.$("#midi-output").prop("disabled", true);
             }
-            this.$("#midi-output").select2({ allowClear: true,	data:outputs });
         },
 
         save:function(){

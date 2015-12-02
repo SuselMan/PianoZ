@@ -145,7 +145,7 @@ module.exports = function (grunt) {
                             'js/bower/midi/*',
                             'soundfont/*',
                             'index.html',
-                            'images/*.{gif,png,jpg,jpeg}',
+                            'images/*.{gif,png,jpg,jpeg,svg}',
                             'fonts/*'
                         ]
                     },

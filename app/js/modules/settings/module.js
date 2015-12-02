@@ -23,6 +23,7 @@ define(function (require) {
 
         showLayout: function () {
             this.region.show(new Layout({module:Module}));
+            console.log('SHOW');
         }
     });
 
