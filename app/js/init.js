@@ -77,7 +77,7 @@ requirejs.config({
         templates: '../templates',
         utils: 'core/utils/utils',
         cache: 'core/utils/cache',
-        common: 'common',
+        common: 'common'
 
     },
 

@@ -21,7 +21,7 @@ define(function (require) {
         },
         events: {
             'mousedown': 'sendNoteOn',
-            'mouseup': 'sendNoteOff',
+            'mouseup': 'sendNoteOff'
         },
         ui:{
             example:"#exampleC"
@@ -67,6 +67,11 @@ define(function (require) {
 
             }.bind(this));
 
+
+
+
+
+
         },
         sendNoteOn:function(){
           //  console.log()
@@ -92,7 +97,11 @@ define(function (require) {
         },
 
         onRender: function () {
-
+            channelMidi.on("sounds:load:progress",function(i){
+                console.log(i);
+                var progress=100-i*100;
+                this.$('.sounds-loader').attr('style','width:'+progress+'%');
+            }.bind(this));
         }
     });
 

@@ -9,6 +9,7 @@ define(function(require) {
 
 	var routes = {
 		'gameWindow(/)': 'gameWindow',
+		'settings(/)': 'settings',
 		'(/)': 'index'
 	};
 

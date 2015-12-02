@@ -8,6 +8,7 @@ define(function(require) {
   var App = require('app');
   var channelGlobal = require('backbone.radio').channel('global');
 
+
   var appController = {
 
     index: function() {
@@ -24,7 +25,14 @@ define(function(require) {
       channelGlobal.request('select:nav:item', 'gameWindow');
       channelGlobal.request('set:body:class', 'gameWindow');
       channelGlobal.request('hide:app:loader');
+    },
+
+    settings:function(id){
+      var module = require('modules/settings/module');
+      module.start({id: id});
     }
+
+
   };
 
   return appController;
