@@ -48,7 +48,6 @@ define(function (require) {
 	});
 
 	channelGlobal.reply('hide:app:loader', function () {
-		//$('.loader-overlay').addClass('loaded');
 		$('#loading-indicator').hide();
 	});
 

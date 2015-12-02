@@ -7,9 +7,6 @@ define(function (require) {
 
     var Marionette = require('marionette'),
         Backbone = require('backbone');
-    var $=require('jquery');
-    var Radio = require('backbone.radio');
-    var channelMidi = Radio.channel('midi');
     var Midi=new require('modules/midi/midi')();
 
 

@@ -16,8 +16,7 @@ define(function(require){
     var Midi=function(){
         if(!is){obj=new MidiWacher()};
         is=true;
-        return obj
-
+        return obj;
     }
 
     var MidiWacher=Backbone.Model.extend({
@@ -63,24 +62,22 @@ define(function(require){
 
 
     },
-
     onsuccesscallback:function(access){
 
         this.access=access;
         setting.inputs=[];
         setting.outputs=[];
         access.inputs.forEach( function( port, key ) {
-            var device={};
-            console.log("PORT",port);
-            device.text = port.name;
-            device.id=port.id;
-            setting.inputs.push(device)
+            settings.inputs.push({
+                text: port.name,
+                id: port.id
+            });
         });
         access.outputs.forEach( function( port, key ) {
-            var device={};
-            device.text = port.name;
-            device.id=setting.outputs.length;
-            setting.outputs.push(device)
+            settings.inputs.push({
+                text: port.name,
+                id: port.id
+            });
         });
         setting.sounds=true;
         setting.input=null;
