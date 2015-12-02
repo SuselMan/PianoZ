@@ -26,7 +26,7 @@ define(function (require) {
         initialize: function (options) {
           //  this.pianoroll=new Pianoroll();
             this.midi=new Midi();
-            this.midi2=new Midi();
+            // this.midi2=new Midi(); // What is this shit for?
 
 
         },
