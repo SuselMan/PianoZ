@@ -26,7 +26,7 @@ define(function(require){
     initialize:function (){
 
         navigator.requestMIDIAccess().then( this.onsuccesscallback.bind(this), this.onerrorcallback.bind(this));
-        channelGlobal.trigger("save:settings",this.updateSetting);
+        channelGlobal.on("save:settings",this.updateSetting);
         channelMidi.on("note:on",function(note,num){
 
             if(num){
