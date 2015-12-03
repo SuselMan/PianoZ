@@ -13,7 +13,7 @@ define(function (require) {
     var MB_Converters = require('common/modelbinder_converters');
     var ModelBinder = require('Backbone.ModelBinder');
 
-    var ChannelMidi = Radio.channel('midi');
+    var channelGlobal = require('backbone.radio').channel('global');
     var Model = require('./model');
     var Midi=new require('modules/midi/midi')();
 
@@ -64,6 +64,7 @@ define(function (require) {
 
         save:function(){
             this.model.save();
+            channelGlobal.trigger("saved:settings",this.model);
         }
 
     });

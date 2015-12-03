@@ -7,8 +7,7 @@ define(function (require) {
 
     var Marionette = require('marionette'),
         Backbone = require('backbone');
-    var Midi=new require('modules/midi/midi')();
-
+    var channelGlobal = require('backbone.radio').channel('global');
 
 
     var Model = Backbone.Model.extend({
@@ -18,15 +17,10 @@ define(function (require) {
             "output":     "",
             "sounds":    ""
         },
-        initialize: function() {
-
-
-        },
 
         save:function(){
-            Midi.updateSetting(this.toJSON());
+            channelGlobal.trigger("save:settings",this.toJSON());
         }
-
 
        });
 

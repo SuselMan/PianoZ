@@ -10,6 +10,7 @@ define(function (require) {
 
     var Midi=require('../midi/midi');
     var View=require('./view');
+    var channelGlobal = require('backbone.radio').channel('global');
 
 
 
@@ -25,7 +26,6 @@ define(function (require) {
             'click #js-close': 'close'
         },
         close:function(){
-            //console.log("STOP POPUP");
             this.module.stop();
         },
         initialize: function (options) {
@@ -36,6 +36,7 @@ define(function (require) {
            // var notes=Notes.getKeysCollection();
             //console.log("SETTINGS");
             this.getRegion('main').show(new View());
+            channelGlobal.on("saved:settings",this.close.bind(this));
         },
 
         onLoadSuccess: function() {
