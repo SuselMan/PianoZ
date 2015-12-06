@@ -1,37 +1,29 @@
-<div class="row">
-    <div class="col-md-3">Input:</div>
-    <div class="col-md-9">
-
-        <input class="form-control" id="midi-input" name="input" placeholder="Select input device">
-
-        </input>
-
+<form class="form-horizontal">
+  <div class="form-group">
+    <label class="col-md-2 control-label">Input</label>
+    <div class="col-md-10">
+      <input class="form-control" id="midi-input" name="input" placeholder="Select input device">
     </div>
+  </div>
 
-</div>
-<div class="row">
-    <div class="col-md-3">Optput:</div>
-    <div class="col-md-9">
-
-        <input class="form-control" id="midi-output" name="output" placeholder="Select output device">
-
-        </input>
-
+  <div class="form-group">
+    <label class="col-md-2 control-label">Output</label>
+    <div class="col-md-10">
+      <input class="form-control" id="midi-output" name="output" placeholder="Select output device">
     </div>
+  </div>
 
-</div>
-<div class="row">
-    <div class="col-md-3">Sounds:</div>
-    <div class="col-md-9">
-
-        <input type="checkbox" name="sounds">
-
+  <div class="form-group">
+    <div class="col-md-offset-2 col-md-10">
+      <div class="checkbox">
+        <label><input type="checkbox" name="sounds">Sounds</label>
+      </div>
     </div>
+  </div>
 
-</div>
-
-<div class="row">
-    <div class="col-md-3">
-        <button type="button" class="btn btn-success" id="save">Save</button>
+  <div class="form-group">
+    <div class="col-md-offset-2 col-md-10">
+      <button type="button" class="btn btn-primary" id="save">Save</button>
     </div>
-</div>
+  </div>
+</form>
