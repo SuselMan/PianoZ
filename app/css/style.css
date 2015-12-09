@@ -129,26 +129,26 @@
 body {
   background-color: #fff; }
 
-.navigate-contanier {
+.navigate-container {
   top: 0%;
   left: 0%;
   width: 100%;
   background-color: #2a2a2a; }
-  .navigate-contanier .logo {
+  .navigate-container .logo {
     top: -6px;
     position: relative; }
-    .navigate-contanier .logo img {
+    .navigate-container .logo img {
       width: 26px; }
-  .navigate-contanier .btn-group {
+  .navigate-container .btn-group {
     right: 10px;
     position: absolute;
     top: 6px;
     background: black; }
 
-.page-contanier {
+.page-container {
   position: absolute; }
 
-.popup-contanier {
+.popup-container {
   z-index: 5000;
   position: absolute;
   top: 0;
