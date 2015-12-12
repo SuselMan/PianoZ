@@ -13,7 +13,7 @@ define(function (require) {
     var KeysColl = require('../pianoroll/collection');
   //  var SingletonModel=require('backbone-singleton');
     var Midi=require('../midi/midi');
-    var NoteSheet = require('../notesheet/view');
+    var NoteSheet = require('../notesheet/layout');
 
     var Layout = Marionette.LayoutView.extend({
         template: require('hbs!templates/gameWindow/layout'),
