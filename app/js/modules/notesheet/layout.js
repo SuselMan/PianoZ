@@ -26,12 +26,8 @@ define(function(require) {
             sheetsShow: '.js-sheets-show'
         },
 
-        ui: {
-            playBtn:'#play'
-        },
-
         events: {
-            'click @ui.playBtn': 'showSheetsView'
+            'change #sheets-select': 'showSheetsView'
         },
 
         initialize: function() {
@@ -46,14 +42,16 @@ define(function(require) {
                     text: function(el) {return el.get('title')}
                 },
                 placeholder: 'Select music sheets to play',
-                // allowClear: true
+                allowClear: true
             });
         },
 
-        showSheetsView: function() {
+        showSheetsView: function(e) {
+            e.val ?
             this.sheetsShow.show(new View({
-                model: this.collection.get(this.$('#sheets-select').val())
-            }));
+                model: this.collection.get(e.val)
+            })) :
+            this.sheetsShow.empty();
         }
     });
 
