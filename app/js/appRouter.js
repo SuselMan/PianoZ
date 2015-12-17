@@ -8,7 +8,7 @@ define(function(require) {
 	var Marionette = require('marionette');
 
 	var routes = {
-		'gameWindow(/)': 'gameWindow',
+		'gameWindow(/:id)': 'gameWindow',
 		'settings(/)': 'settings',
 		'(/)': 'index'
 	};

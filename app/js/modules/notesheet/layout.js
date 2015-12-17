@@ -2,6 +2,7 @@ define(function(require) {
     "use strict";
 
     var Marionette = require('marionette');
+    var channelGlobal = require('backbone.radio').channel('global');
 
     var Collection = require('./collection');
     var View = require('./view');
@@ -27,7 +28,7 @@ define(function(require) {
         },
 
         events: {
-            'change #sheets-select': 'showSheetsView'
+            'change #sheets-select': 'sheetsSelect'
         },
 
         initialize: function() {
@@ -44,14 +45,22 @@ define(function(require) {
                 placeholder: 'Select music sheets to play',
                 allowClear: true
             });
+
+            channelGlobal.on('show:notesheet', function(id) {
+                this.getRegion('sheetsShow').show(new View({
+                    model: this.collection.get(id)
+                }))
+            }, this)
         },
 
-        showSheetsView: function(e) {
-            e.val ?
-            this.sheetsShow.show(new View({
-                model: this.collection.get(e.val)
-            })) :
-            this.sheetsShow.empty();
+        sheetsSelect: function(e) {
+            if (e.val) {
+                channelGlobal.trigger('show:notesheet', e.val);
+                channelGlobal.request('navigate', 'gameWindow/' + e.val);
+            } else {
+                this.sheetsShow.empty();
+                channelGlobal.request('navigate', 'gameWindow/');
+            }
         }
     });
 
