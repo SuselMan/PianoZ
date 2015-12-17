@@ -46,6 +46,10 @@ define(function(require) {
                 allowClear: true
             });
 
+            channelGlobal.on('select:notesheet', function(id) {
+                this.$('#sheets-select').select2('val', id, true);
+            }, this);
+
             channelGlobal.on('show:notesheet', function(id) {
                 this.getRegion('sheetsShow').show(new View({
                     model: this.collection.get(id)
@@ -59,7 +63,7 @@ define(function(require) {
                 channelGlobal.request('navigate', 'gameWindow/' + e.val);
             } else {
                 this.sheetsShow.empty();
-                channelGlobal.request('navigate', 'gameWindow/');
+                channelGlobal.request('navigate', 'gameWindow');
             }
         }
     });

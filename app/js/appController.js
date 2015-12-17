@@ -30,8 +30,7 @@ define(function(require) {
       channelGlobal.request('set:body:class', 'gameWindow');
       channelGlobal.request('hide:app:loader');
 
-      console.log('GameWindow route fired, id is ' + id);
-      id && channelGlobal.trigger('show:notesheet', id);
+      channelGlobal.trigger('select:notesheet', id);
     },
 
     settings:function(id){
