@@ -18,13 +18,19 @@ define(function(require) {
     gameWindow: function(id) {
       var module = require('modules/gameWindow/module');
 
-      App.activeModule && App.activeModule.stop();
-      App.activeModule = module;
-      App.activeModule.start({id: id});
+      // App.activeModule && App.activeModule.stop();
+      // App.activeModule = module;
+      // App.activeModule.start({id: id});
+      if (!App.activeModule) {
+          App.activeModule = module;
+          App.activeModule.start();
+      };
 
       channelGlobal.request('select:nav:item', 'gameWindow');
       channelGlobal.request('set:body:class', 'gameWindow');
       channelGlobal.request('hide:app:loader');
+
+      channelGlobal.trigger('select:notesheet', id);
     },
 
     settings:function(id){
