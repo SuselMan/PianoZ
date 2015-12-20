@@ -33,12 +33,6 @@ define(function(require) {
       channelGlobal.trigger('select:notesheet', id);
     },
 
-    settings:function(id){
-      var module = require('modules/settings/module');
-      module.start({id: id});
-    }
-
-
   };
 
   return appController;
