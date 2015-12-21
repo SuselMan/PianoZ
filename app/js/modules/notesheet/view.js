@@ -6,8 +6,15 @@ define(function(require) {
 
     var View = Marionette.ItemView.extend({
         template: false,
+
+        events: {
+            'click': function () {
+                abc.startAnimation(this.el, this.tune, {showCursor: true});
+            }
+        },
+
         onRender: function() {
-            abc.renderAbc(this.el, this.model.get('notesheet'));
+            this.tune = abc.renderAbc(this.el, this.model.get('notesheet'), {}, {add_classes: true})[0];
         }
     });
 

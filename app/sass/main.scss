@@ -49,3 +49,6 @@ body{
 .popup{
   @include box-shadow(0px 0px 33px -5px, rgba(0,0,0,0.12));
 }
+.cursor{
+  background-color: rgba(196,0,0,.5)
+}
