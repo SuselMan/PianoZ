@@ -10,7 +10,6 @@ define(function(require) {
 	var routes = {
 		'gameWindow(/)': 'gameWindow',
 		'gameWindow(/:id)': 'gameWindow',
-		'settings(/)': 'settings',
 		'(/)': 'index'
 	};
 

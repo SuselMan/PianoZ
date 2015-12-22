@@ -8,7 +8,8 @@ define(function (require) {
 		_ = require('underscore'),
 		App = require('app'),
 		AppRouter = require('appRouter'),
-		appController = require('appController');
+		appController = require('appController'),
+		settingsModule = require('modules/settings/module');
 
 	App.addInitializer(function () {
 		App.Router = new AppRouter({
@@ -17,9 +18,13 @@ define(function (require) {
 	});
 
 	App.on('start', function() {
-		if (Backbone.history){
-			Backbone.history.start({pushState: true});
-		}
+            if (Backbone.history){
+                Backbone.history.start({pushState: true});
+            };
+
+            $('#settings').on('click', function() {
+                settingsModule.start();
+            });
 	});
 
 	App.start();

@@ -36,10 +36,7 @@ define(function (require) {
     });
 
     Module.on('stop', function() {
-
-        window.history.back();
-        return this.controller && (this.controller.destroy());
-
+        this.controller && this.controller.destroy();
     });
 
     return Module;
