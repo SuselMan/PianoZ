@@ -61,7 +61,7 @@ requirejs.config({
         "bootstrap-datepicker-ru": "bower/bootstrap-datepicker/dist/locales/bootstrap-datepicker.ru.min",
         "bootstrap-toggle": "bower/bootstrap-toggle/js/bootstrap-toggle",
 
-        'abc': 'lib/abcjs_basic_noraphael_2.2-min',
+        'abc': 'lib/abcjs_basic_noraphael_2.3-min',
         'raphael': 'bower/raphael/raphael',
 
         /* require handlebars plugin - Alex Sexton */
