@@ -49,5 +49,8 @@ body {
   .select2-container {
     width: 250px;
   }
+  .select2-container.select2-allowclear:not(:hover) .select2-choice abbr {
+    display: none;
+  }
 }
 
