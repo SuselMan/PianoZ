@@ -5,25 +5,25 @@
 @import "layout/loading";
 
 
-body{
+body {
   background-color: $main-background;
 
 }
 
-.navigate-container{
+.navigate-container {
 
   top: 0%;
   left: 0%;
   width: 100%;
   background-color: $second-background;
-  .logo{
+  .logo {
     top: -6px;
     position: relative;
-    img{
+    img {
       width: 26px;
     }
   }
-  .btn-group{
+  .btn-group {
     right: 10px;
     position: absolute;
     top: 6px;
@@ -31,17 +31,17 @@ body{
   }
 
 }
-.page-container{
+.page-container {
   position: absolute;
   width: 100%;
 }
-.popup-container{
+.popup-container {
   z-index: 5000;
   position: absolute;
   top: 0;
   right: 0;
 }
-.popup{
+.popup {
   @include box-shadow(0px 0px 33px -5px, rgba(0,0,0,0.12));
 }
 
