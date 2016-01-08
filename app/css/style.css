@@ -146,7 +146,8 @@ body {
     background: black; }
 
 .page-container {
-  position: absolute; }
+  position: absolute;
+  width: 100%; }
 
 .popup-container {
   z-index: 5000;
@@ -158,3 +159,6 @@ body {
   -webkit-box-shadow: 0px 0px 33px -5px rgba(0, 0, 0, 0.12);
   -moz-box-shadow: 0px 0px 33px -5px rgba(0, 0, 0, 0.12);
   box-shadow: 0px 0px 33px -5px rgba(0, 0, 0, 0.12); }
+
+.js-sheets-select .select2-container {
+  width: 250px; }
