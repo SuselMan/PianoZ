@@ -164,3 +164,6 @@ body {
   width: 250px; }
 .js-sheets-select .select2-container.select2-allowclear:not(:hover) .select2-choice abbr {
   display: none; }
+
+.noborder {
+  border: none; }
