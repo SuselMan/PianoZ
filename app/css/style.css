@@ -55,7 +55,7 @@
     z-index: 1000;
     float: left;
     width: 1.4%;
-    height: 70%;
+    height: 65%;
     margin-left: -0.7%;
     margin-right: -0.7%;
     position: relative;
@@ -167,3 +167,6 @@ body {
 
 .noborder {
   border: none; }
+
+.header {
+  margin-bottom: 0; }
