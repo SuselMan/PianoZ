@@ -104,16 +104,14 @@ define(function(require){
         setting.sounds?MIDI.setVolume(0, 127):MIDI.setVolume(0,0);
         console.log("Setting Was Update");
     },
+
     MIDIMessageEventHandler:function(e){
 
-        if(e.data.length>1){
-            if(e.data[2]>0){
-                channelMidi.trigger("note:on",0, e.data[1]);
-            }
-            else{
-                channelMidi.trigger("note:off",0, e.data[1]);
-            }
-
+        if(e.data[0] == 128 || (e.data[0] == 144 && e.data[2] == 0)) {
+            channelMidi.trigger("note:off",0, e.data[1]);
+        }
+        else if (e.data[0] == 144) {
+            channelMidi.trigger("note:on",0, e.data[1]);
         }
 
     },
