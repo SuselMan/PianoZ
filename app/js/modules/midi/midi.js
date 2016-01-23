@@ -106,10 +106,16 @@ define(function(require){
     },
 
     MIDIMessageEventHandler:function(e){
+        //e -- MIDI event to be handled
+        //e.data[0] -- MIDI command and channel encoded in HEX (don't care about parsing hex for now)
+        //e.data[1] -- MIDI note number
+        //e.data[2] -- velocity
 
+        // cmd 128 is note-off, and sometimes cmd 144 with zero velocity is note-off
         if(e.data[0] == 128 || (e.data[0] == 144 && e.data[2] == 0)) {
             channelMidi.trigger("note:off",0, e.data[1]);
         }
+        // cmd 144 is note-on
         else if (e.data[0] == 144) {
             channelMidi.trigger("note:on",0, e.data[1]);
         }
