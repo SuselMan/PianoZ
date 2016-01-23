@@ -26,7 +26,7 @@ define(function(require){
     initialize:function (){
 
         navigator.requestMIDIAccess().then( this.onsuccesscallback.bind(this), this.onerrorcallback.bind(this));
-        channelGlobal.on("save:settings",this.updateSetting);
+        channelGlobal.on("save:settings",this.updateSetting, this);
         channelMidi.on("note:on",function(note,num){
 
             if(num){
@@ -69,13 +69,13 @@ define(function(require){
         setting.inputs=[];
         setting.outputs=[];
         access.inputs.forEach( function( port, key ) {
-            settings.inputs.push({
+            setting.inputs.push({
                 text: port.name,
                 id: port.id
             });
         });
         access.outputs.forEach( function( port, key ) {
-            settings.inputs.push({
+            setting.outputs.push({
                 text: port.name,
                 id: port.id
             });
@@ -97,7 +97,7 @@ define(function(require){
         setting.output=newsetting.output;
         setting.sounds=newsetting.sounds;
         if(setting.input) {
-            var input = this.access.inputs.get(setting.inputs[setting.input].id);
+            var input = this.access.inputs.get(setting.input);
             console.log(input);
             input.onmidimessage = this.MIDIMessageEventHandler;
         }
