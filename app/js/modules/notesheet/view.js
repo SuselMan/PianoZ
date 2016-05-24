@@ -11,13 +11,14 @@ define(function(require) {
 
         events: {
             'click': function () {
-                abc.startAnimation(this.el, this.tune, {showCursor: true});
+                abc.startAnimation(this.el, this.tune, {showCursor: true,bpm:1});
+                //abc.stopAnimation();
             }
         },
 
         onRender: function() {
             this.scale = [0,2,4,5,7,9,11];
-            this.tune = abc.renderAbc(this.el, this.model.get('notesheet'), {}, {add_classes: true})[0];
+            this.tune = abc.renderAbc(this.el, this.model.get('notesheet'), {}, {editable:true,add_classes: true})[0];
             var seq = abc.midi.sequence(this.tune)[0];
             this.timeline=[];
             for (var i = 0; i < seq.length; i++) {

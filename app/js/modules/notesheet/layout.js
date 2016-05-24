@@ -13,9 +13,9 @@ define(function(require) {
         "L:1/4\n" +
         "K:C\n";
     var data = [
-        { title: 'test1', notesheet: abctemp + "C, D, E, F,|]\n" },
+        { title: 'test1', notesheet: abctemp + "D, D, E, F,|]\n" },
         { title: 'test2', notesheet: abctemp + "G, A, B, C|]\n" },
-        { title: 'test3', notesheet: abctemp + "D  E  F  G|]\n" },
+        { title: 'test3', notesheet: abctemp + "D  D  F  G|]\n" },
         { title: 'test4', notesheet: abctemp + "A  B  c  d|]\n" },
         { title: 'test5', notesheet: abctemp + "e  f  g  a|]\n" }
     ];
